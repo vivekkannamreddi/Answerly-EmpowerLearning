@@ -1,0 +1,118 @@
+/* .hero-root{
+    height: 60vh;       
+    border-radius: 2rem;
+    background-color: #6d28d2;
+    margin: 60px 0;
+    padding: 3rem;
+}
+.hero-content>h1{
+    animation: fadein 3s;
+}
+.hero-content>p{
+    animation: fadein 3s;
+}
+.hero-content h1{
+    color: white;
+    font-size:5.3rem;
+    
+}
+.hero-content p{
+    color: white;
+    font-size: 20px;
+}
+.btn{
+    height: 60px;
+    width: 200px;
+    font-size: 1.3rem;
+    border-radius: 1.8rem;
+    color:  #6d28d2;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+@keyframes fadein {
+  from { opacity: 0; }
+  to { opacity: 1; }
+} */
+
+
+
+
+.hero-root {
+    border-radius: 2rem;
+    background-color: #6d28d2;
+    margin: 60px 0;
+    padding: 3rem;
+    text-align: center;
+}
+
+.hero-content > h1,
+.hero-content > p {
+    animation: fadein 3s;
+    text-align: left;
+}
+
+.hero-content h1 {
+    color: white;
+    font-size: 4rem;
+}
+
+.hero-content p {
+    color: white;
+    font-size: 1.1rem;
+}
+.button{
+    display: flex;
+    justify-content: start;
+}
+
+.getstartedbtn {
+    height: 50px;
+    width: 180px;
+    font-size: 1rem;
+    border-radius: 1.8rem;
+    color: #6d28d2;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero-content p {
+        font-size: 0.95rem;
+    }
+
+    .btn {
+        width: 160px;
+        height: 45px;
+        font-size: 0.95rem;
+    }
+}
+@media (max-width: 530px) {
+    
+    .hero-content h1 {
+        font-size:2rem;
+        padding: 0;
+        text-align: left;
+    }
+
+    .hero-content p {
+        font-size: 0.8rem;
+        text-align: left;
+    }
+
+    .btn {
+        width: 300px;
+        height: 45px;
+        font-size: 0.95rem;
+
+    }
+}
