@@ -9,6 +9,7 @@ const Navbar = () => {
 
   const handleLogout = () => {
     localStorage.removeItem('tokenAnswerly');
+    localStorage.removeItem('userAnswerly');
     navigate('/');
   };
 

@@ -1,0 +1,64 @@
+.answers-section {
+  margin-top: 30px;
+  padding: 20px;
+  border: 2px solid #2196f3;
+  border-radius: 8px;
+  background-color: #f5faff;
+}
+
+.answers-section h3 {
+  margin-bottom: 15px;
+  color: #1976d2;
+}
+
+.answer-box {
+  margin-bottom: 15px;
+  padding: 10px;
+  border: 1px solid #cce5ff;
+  background-color: #eaf4ff;
+  border-radius: 6px;
+}
+
+.answered-by {
+  font-style: italic;
+  text-align: right;
+  color: #555;
+  margin-top: 5px;
+}
+
+.answer-btn {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #1976d2;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.answer-form {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.answer-form textarea {
+  width: 100%;
+  height: 120px;
+  padding: 12px;
+  font-size: 16px;
+  border: 1.5px solid #1976d2;
+  border-radius: 8px;
+  resize: none;
+  margin-bottom: 10px;
+}
+
+.answer-form button {
+  width: 100px;
+  padding: 10px;
+  background-color: #2196f3;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}

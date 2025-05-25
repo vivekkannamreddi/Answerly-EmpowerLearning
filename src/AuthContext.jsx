@@ -9,11 +9,16 @@ export function AuthProvider({ children }) {
 
   useEffect(() => {
     const savedToken = localStorage.getItem('tokenAnswerly');
-    if (savedToken) {
-      setToken(savedToken);
-      // Optionally load user info from token or elsewhere
+    const savedUser = localStorage.getItem('userAnswerly');
+
+    if (savedToken) setToken(savedToken);
+    if (savedUser) {
+      const parsedUser = JSON.parse(savedUser);
+      setUser(parsedUser);
     }
   }, []);
+
+ 
 
   const value = { token, user, setToken, setUser };
 

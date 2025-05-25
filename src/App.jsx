@@ -8,9 +8,9 @@ import Login from './components/Login'
 import { AuthProvider } from './AuthContext'
 import Posts from './pages/posts/Posts.jsx'
 import CreatePost from './components/CreatePost'
+import ShowPost from './components/ShowPost.jsx'
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <AuthProvider>
@@ -22,6 +22,7 @@ function App() {
           <Route path='/login' element={<Login/>}/>
           <Route path="/posts" element={<Posts />} />
           <Route path="/create" element={<CreatePost/>} />
+          <Route path="/showPost/:id" element={<ShowPost />} />
         </Routes>
     </div>
     </AuthProvider>

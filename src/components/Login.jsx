@@ -7,7 +7,7 @@ import Button from '@mui/material/Button';
 import { useAuth } from '../AuthContext.jsx';
 
 function Login() {
-    const { setToken } = useAuth();
+    const { setUser,setToken } = useAuth();
     const [formData, setFormData] = useState({ email: '', password: '' });
     const navigate = useNavigate();
     const handleChange = (e) => {
@@ -19,7 +19,9 @@ function Login() {
         try {
             const res = await API.post('/auth/login', formData);
             localStorage.setItem('tokenAnswerly', res.data.token);
-            setToken(res.data.token); 
+            localStorage.setItem('userAnswerly', JSON.stringify(res.data.user));
+            setToken(res.data.token);
+            setUser(res.data.user);  
             console.log("Login successful!");
             navigate('/posts');
         } catch (err) {
