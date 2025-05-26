@@ -26,11 +26,15 @@ function Signup() {
 
     return (
         <form onSubmit={handleSubmit} className='SignUpForm'>
-            <h2>SignUp</h2>
-            <TextField className='textfield' name="username"  label="Username" onChange={handleChange} required variant="standard" />
-            <TextField className='textfield' name="email"  label="Email" type='email' onChange={handleChange} required variant="standard" />
-            <TextField className='textfield' name="password"     label="Password" type='password' onChange={handleChange} required variant="standard" />
-            <Button type="submit" variant="outlined" sx={{marginTop:"20px",height:"40px" ,width: "300px",}} >Sign Up</Button>
+            <div className="signupMain">
+                <div className="signupInner">
+                    <h2>SignUp</h2>
+                    <div className='textfieldsignup'><TextField  className='textfieldsignup' name="username"  label="Username" onChange={handleChange} required variant="standard" /></div>
+                    <div className='textfieldsignup'><TextField className='textfieldsignup' name="email"  label="Email" type='email' onChange={handleChange} required variant="standard" /></div>
+                    <div className='textfieldsignup'><TextField className='textfieldsignup' name="password"     label="Password" type='password' onChange={handleChange} required variant="standard" /></div>
+                    <div className='textfieldsignup'><Button className='textfieldsignup' type="submit" variant="outlined" sx={{marginTop:"20px",height:"40px" ,width: "300px",}} >Sign Up</Button></div>
+                </div>
+            </div>
         </form>
     );
 }

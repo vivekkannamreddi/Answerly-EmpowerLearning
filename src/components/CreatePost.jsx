@@ -39,17 +39,10 @@ const CreatePost = () => {
       setErrors(newErrors);
     } else {
       console.log('Form Submitted:', formData);
-      // send formData to server
       try {
-            
-            // const res = await API.post('/auth/posts', { ...formData, postedBy: userId });
             const res = await API.post('/auth/posts', formData, {headers: { Authorization: `Bearer ${token}` }})
-           
-
             console.log('Post created:', res.data);
-
-            // Redirect to posts page or clear form
-            navigate('/posts'); // or window.location.reload() if not using router
+            navigate('/posts'); 
         } catch (err) {
             console.error('Error creating post:', err.response?.data || err.message);
         }
@@ -59,56 +52,77 @@ const CreatePost = () => {
 
   return (
     <div className="create-post">
-      <h2>Create Post</h2>
       <form onSubmit={handleSubmit} className="form-wrapper">
-        <TextField
-          name="title"
-          label="Title"
-          variant="filled"
-          value={formData.title}
-          onChange={handleChange}
-          error={Boolean(errors.title)}
-          helperText={errors.title}
-        />
-        <TextField
-          name="description"
-          label="Description"
-          variant="filled"
-          value={formData.description}
-          onChange={handleChange}
-          error={Boolean(errors.description)}
-          helperText={errors.description}
-        />
-        <TextField
-          name="difficulty"
-          label="Difficulty (Easy/Medium/Hard)"
-          variant="filled"
-          value={formData.difficulty}
-          onChange={handleChange}
-          error={Boolean(errors.difficulty)}
-          helperText={errors.difficulty}
-        />
-        <TextField
-          name="subject"
-          label="Subject"
-          variant="filled"
-          value={formData.subject}
-          onChange={handleChange}
-          error={Boolean(errors.subject)}
-          helperText={errors.subject}
-        />
-        <TextField
-          name="topic"
-          label="Topic"
-          variant="filled"
-          value={formData.topic}
-          onChange={handleChange}
-          error={Boolean(errors.topic)}
-          helperText={errors.topic}
-        />
-        <Button type="submit" variant="contained" color="primary" style={{ marginTop: '1rem' }}>
-          Submit
-        </Button>
+        <div className="createpostMain">
+          <div className="createpostInner">
+            <h1>Create Post</h1>
+            <div className='textfieldcreate'>
+                <TextField
+                name="title"
+                label="Title"
+                variant="filled"
+                className='textfieldcreate'
+                value={formData.title}
+                onChange={handleChange}
+                error={Boolean(errors.title)}
+                helperText={errors.title}
+              />
+            </div>
+            <div className='textfieldcreate'>
+              <TextField
+                name="description"
+                label="Description"
+                variant="filled"
+                className='textfieldcreate'
+                value={formData.description}
+                onChange={handleChange}
+                error={Boolean(errors.description)}
+                helperText={errors.description}
+              />
+            </div>
+            <div className='textfieldcreate'>
+              <TextField
+                name="difficulty"
+                label="Difficulty (Easy/Medium/Hard)"
+                variant="filled"
+                className='textfieldcreate'
+                value={formData.difficulty}
+                onChange={handleChange}
+                error={Boolean(errors.difficulty)}
+                helperText={errors.difficulty}
+              />
+            </div>
+            <div className='textfieldcreate'>
+              <TextField
+                name="subject"
+                label="Subject"
+                variant="filled"
+                className='textfieldcreate'
+                value={formData.subject}
+                onChange={handleChange}
+                error={Boolean(errors.subject)}
+                helperText={errors.subject}
+              />
+            </div>
+            <div className='textfieldcreate'>
+              <TextField
+                name="topic"
+                label="Topic"
+                variant="filled"
+                className='textfieldcreate'
+                value={formData.topic}
+                onChange={handleChange}
+                error={Boolean(errors.topic)}
+                helperText={errors.topic}
+              />
+            </div>
+            <div className='textfieldcreate'>
+              <Button type="submit" variant="contained" color="primary" style={{ marginTop: '1rem' }}>
+                Submit
+              </Button>
+            </div>
+          </div>
+        </div>
       </form>
     </div>
   );

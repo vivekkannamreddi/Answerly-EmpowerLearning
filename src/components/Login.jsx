@@ -31,10 +31,14 @@ function Login() {
 
     return (
         <form onSubmit={handleSubmit} className='LoginForm'>
-            <h2>Log In</h2>
-            <TextField className='textfield' name="email"  label="Email" onChange={handleChange} required variant="standard" />
-            <TextField className='textfield' name="password" type="password" label="Password" variant="standard"  onChange={handleChange} required />
-            <Button variant="outlined" sx={{marginTop:"20px",height:"40px" ,width: "300px",}} type="submit">Log In</Button>
+            <div className="loginMain">
+                <div className="loginInner">
+                    <h2>Log In</h2>
+                    <div className='textfieldlogin'><TextField className='textfieldlogin' name="email"  label="Email" onChange={handleChange} required variant="standard" /></div>
+                    <div className='textfieldlogin'><TextField className='textfieldlogin' name="password" type="password" label="Password" variant="standard"  onChange={handleChange} required /></div>
+                    <div className='textfieldlogin'><Button className='textfieldlogin' variant="outlined" sx={{marginTop:"20px",height:"40px" ,width: "300px",}} type="submit">Log In</Button></div>
+                </div>
+            </div>
         </form>
     );
 }

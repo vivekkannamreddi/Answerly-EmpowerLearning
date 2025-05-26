@@ -26,7 +26,7 @@ const Posts = () => {
       <h1>All Posts</h1>
 
       <div className="fab-button">
-        <Fab color="primary" aria-label="add" onClick={() => navigate('/create')}>
+        <Fab sx={{ backgroundColor: '#6d28d2',color:'white', '&:hover': { backgroundColor: '#5b21b6' } }} aria-label="add" onClick={() => navigate('/create')}>
           <AddIcon />
         </Fab>
       </div>
