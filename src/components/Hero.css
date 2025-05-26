@@ -52,6 +52,10 @@
     animation: fadein 3s;
     text-align: left;
 }
+.getstartedbtn{
+    animation: fadein 3s;
+}
+
 
 .hero-content h1 {
     color: white;
@@ -116,3 +120,10 @@
 
     }
 }
+
+
+
+@keyframes fadein {
+  from { opacity: 0; }
+  to { opacity: 1; }
+} 

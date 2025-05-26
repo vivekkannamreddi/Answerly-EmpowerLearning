@@ -14,10 +14,13 @@ const ShowPost = () => {
   const [answerText, setAnswerText] = useState('');
   const [sending, setSending] = useState(false);
   const [answers, setAnswers] = useState([]);
-
+  const currentUserId = user?.id;
+  const {token} = useAuth()
   useEffect(() => {
     fetchPost();
   }, [id]);
+
+
 
   const fetchPost = () => {
     setLoading(true);
@@ -32,6 +35,17 @@ const ShowPost = () => {
         setLoading(false);
       });
   };
+
+ const handleDelete = async (AnsId) => {
+  try {
+    await API.delete(`/auth/answers/${AnsId}`, {headers: {Authorization: `Bearer ${token}`}});
+    setAnswers(answers.filter(ans => ans._id !== AnsId));
+  } catch (err) {
+    console.error('Failed to delete answer', err);
+  }
+};
+
+
 
   const handleSubmitAnswer = async() => {
     if (!answerText.trim()) return;
@@ -106,6 +120,9 @@ const ShowPost = () => {
             <div key={index} className="answer-box">
               <p>{ans.content}</p>
               <p className="answered-by">— {ans.answeredBy?.username || 'Anonymous'}</p>
+              {ans.answeredBy?._id === currentUserId && (
+              <button onClick={() => handleDelete(ans._id)}className='deletepostbutton'>Delete</button>
+              )}
             </div>
           ))
         )}

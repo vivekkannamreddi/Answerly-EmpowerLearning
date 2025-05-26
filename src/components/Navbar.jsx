@@ -23,7 +23,6 @@ const Navbar = () => {
         <div className="nav-sections middle desktop-menu">
           <p className='nav-elements' onClick={() => navigate('/posts')}>Posts</p>
           <p className='nav-elements'>My-doubts</p>
-          <p className='nav-elements'>Solved</p>
           <p className='nav-elements'>Answered</p>
         </div>
 
@@ -49,7 +48,6 @@ const Navbar = () => {
         <div className="mobile-menu">
           <p className='nav-elements'>Posts</p>
           <p className='nav-elements'>My-doubts</p>
-          <p className='nav-elements'>Solved</p>
           <p className='nav-elements'>Answered</p>
           {tokenAnswerly ? (
             <a className='nav-elements' onClick={handleLogout}>Log Out</a>

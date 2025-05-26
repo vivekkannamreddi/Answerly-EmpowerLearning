@@ -4,11 +4,25 @@ import { useNavigate } from 'react-router-dom';
 import Fab from '@mui/material/Fab';
 import AddIcon from '@mui/icons-material/Add';
 import './Posts.css'; 
+import { useAuth } from '../../AuthContext.jsx';
 
 
 const Posts = () => {
   const [posts, setPosts] = useState([]);
   const navigate = useNavigate();
+  const {user,token} = useAuth()
+  const currentUserId = user?.id
+
+
+  const handleDelete = async (postId) => {
+    try {
+      await API.delete(`/auth/posts/${postId}`,{ headers: {Authorization: `Bearer ${token}`}});
+      setPosts(posts.filter(post => post._id !== postId));
+    } catch (err) {
+      console.error('Failed to delete post', err);
+    }
+  };
+
 
   useEffect(() => {
     API.get('/auth/posts')
@@ -45,11 +59,14 @@ const Posts = () => {
               </div>
               <div className="column">
                 <p><strong>✍️ Posted By:</strong> {post.postedBy?.username || 'Anonymous'}</p>
-                <p><strong>💬 Answers:</strong> {post.answers.length}</p>
+                <p><strong>💬 Answers:</strong> {post.answerCount}</p>
                 <p><strong>🕒 Posted On:</strong> {new Date(post.createdAt).toLocaleString()}</p>
               </div>
               <div className="column button-column">
-                <button onClick={() => navigate(`/showPost/${post._id}`)}>View Post</button>
+                <button onClick={() => navigate(`/showPost/${post._id}`)} className='viewpostbutton'>View Post</button>
+                {post.postedBy?._id === currentUserId && (
+                <button onClick={() => handleDelete(post._id)} className='deletepostbutton'>Delete Post</button>
+                )}
               </div>
             </div>
           </div>

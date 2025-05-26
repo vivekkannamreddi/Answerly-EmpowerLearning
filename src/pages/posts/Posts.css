@@ -68,7 +68,7 @@ h1 {
   align-items: flex-end;
 }
 
-.button-column button {
+.viewpostbutton {
   padding: 0.4rem 1rem;
   border: 1px solid #1976d2;
   background-color: white;
@@ -77,8 +77,28 @@ h1 {
   cursor: pointer;
   transition: background-color 0.2s ease;
 }
-
-.button-column button:hover {
+.viewpostbutton:hover {
   background-color: #1976d2;
   color: white;
 }
+.deletepostbutton {
+  padding: 0.4rem 1rem;
+  margin-left: 1rem;
+  border: 1px solid red;
+  background-color: white;
+  color: red;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.deletepostbutton:hover {
+  background-color: red;
+  color: white;
+}
+.deletepostbutton:active {
+  background-color: darkred;
+}
+
+
+
