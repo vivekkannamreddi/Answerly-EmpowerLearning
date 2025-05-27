@@ -1,16 +1,19 @@
 import React, { useState } from 'react';
 import './Navbar.css';
 import { useNavigate, Link } from 'react-router-dom';
+import { useAuth } from '../AuthContext';
+import MyDoubts from '../pages/my-doubts/MyDoubts';
+
 
 const Navbar = () => {
   const navigate = useNavigate();
   const tokenAnswerly = localStorage.getItem('tokenAnswerly');
   const [isOpen, setIsOpen] = useState(false);
+  const {logout} = useAuth();
 
   const handleLogout = () => {
-    localStorage.removeItem('tokenAnswerly');
-    localStorage.removeItem('userAnswerly');
-    navigate('/');
+    logout();
+    navigate('/')
   };
 
   return (
@@ -22,7 +25,7 @@ const Navbar = () => {
 
         <div className="nav-sections middle desktop-menu">
           <p className='nav-elements' onClick={() => navigate('/posts')}>Posts</p>
-          <p className='nav-elements'>My-doubts</p>
+          <p className='nav-elements' onClick={()=> navigate('/mydoubts')}>My-doubts</p>
           <p className='nav-elements'>Answered</p>
         </div>
 
@@ -58,7 +61,7 @@ const Navbar = () => {
             </>
           )}
         </div>
-      )}
+      )}                                                                        
     </>
   );
 };

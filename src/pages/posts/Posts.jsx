@@ -25,15 +25,22 @@ const Posts = () => {
 
 
   useEffect(() => {
-    API.get('/auth/posts')
-      .then(res => {
-        setPosts(res.data);
-      })
-      .catch(err => {
-        console.error('API error:', err);
+  const fetchPosts = async (retry = false) => {
+    try {
+      const res = await API.get('/auth/posts');
+      setPosts(res.data);
+    } catch (err) {
+      console.error('API error:', err);
+      if (!retry) {
+        setTimeout(() => fetchPosts(true), 1000);
+      } else {
         setPosts([]);
-      });
-  }, []);
+      }
+    }
+  };
+  fetchPosts();
+}, []);
+
 
   return (
     <div className="posts-container">
@@ -64,9 +71,10 @@ const Posts = () => {
               </div>
               <div className="column button-column">
                 <button onClick={() => navigate(`/showPost/${post._id}`)} className='viewpostbutton'>View Post</button>
-                {post.postedBy?._id === currentUserId && (
-                <button onClick={() => handleDelete(post._id)} className='deletepostbutton'>Delete Post</button>
+                {user && post.postedBy?._id === currentUserId && (
+                  <button onClick={() => handleDelete(post._id)} className='deletepostbutton'>Delete Post</button>
                 )}
+
               </div>
             </div>
           </div>

@@ -9,6 +9,7 @@ import { AuthProvider } from './AuthContext'
 import Posts from './pages/posts/Posts.jsx'
 import CreatePost from './components/CreatePost'
 import ShowPost from './components/ShowPost.jsx'
+import MyDoubts from './pages/my-doubts/MyDoubts.jsx'
 
 function App() {
 
@@ -21,6 +22,7 @@ function App() {
           <Route path='/signup' element={<Signup/>}/>
           <Route path='/login' element={<Login/>}/>
           <Route path="/posts" element={<Posts />} />
+          <Route path="/mydoubts" element={<MyDoubts />} />
           <Route path="/create" element={<CreatePost/>} />
           <Route path="/showPost/:id" element={<ShowPost />} />
         </Routes>
