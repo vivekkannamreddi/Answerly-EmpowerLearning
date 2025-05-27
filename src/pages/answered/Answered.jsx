@@ -35,7 +35,6 @@ const Answered = () => {
   if (!currentUserId) {
     return <div className="not-logged-in">Please log in to view your Answered Posts.</div>;
   }
-
   return (
     <div className="answered-container">
   <h1>My Answered Posts</h1>
@@ -56,7 +55,7 @@ const Answered = () => {
               <p><strong>🔥 Difficulty:</strong> {post.difficulty}</p>
             </div>
             <div className="column">
-              <p><strong>✍️ Posted By:</strong> {post.postedBy?.name || "Anonymous"}</p>
+              <p><strong>✍️ Posted By:</strong> {post.postedBy?.username || "Anonymous"}</p>
               <p><strong>💬 Answers:</strong> {post.answerCount || 0}</p>
               <p><strong>🕒 Posted On:</strong> {new Date(post.createdAt).toLocaleString()}</p>
             </div>
