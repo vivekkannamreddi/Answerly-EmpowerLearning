@@ -1,0 +1,95 @@
+/* Answered.css */
+.answered-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.answered-container h2 {
+  font-size: 2.2rem;
+  margin-bottom: 1.5rem;
+}
+
+.post-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.post-card {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 1.2rem;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.post-card h3 {
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+  color: #333;
+}
+
+.description {
+  margin-bottom: 1rem;
+  color: #555;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.details {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  font-size: 0.9rem;
+}
+
+.column {
+  flex: 1;
+  min-width: 200px;
+  padding-right: 1rem;
+}
+
+.button-column {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+.viewpostbutton, .deletepostbutton {
+  padding: 0.4rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.viewpostbutton {
+  border: 1px solid #1976d2;
+  background-color: white;
+  color: #1976d2;
+}
+
+.viewpostbutton:hover {
+  background-color: #1976d2;
+  color: white;
+}
+
+.deletepostbutton {
+  border: 1px solid red;
+  background-color: white;
+  color: red;
+  margin-left: 1rem;
+}
+
+.deletepostbutton:hover {
+  background-color: red;
+  color: white;
+}
+
+.deletepostbutton:active {
+  background-color: darkred;
+}
