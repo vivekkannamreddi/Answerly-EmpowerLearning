@@ -11,6 +11,7 @@ import CreatePost from './components/CreatePost'
 import ShowPost from './components/ShowPost.jsx'
 import MyDoubts from './pages/my-doubts/MyDoubts.jsx'
 import Answered from './pages/answered/Answered.jsx'
+import Profile from './components/Profile.jsx'
 
 function App() {
 
@@ -27,6 +28,8 @@ function App() {
           <Route path="/answered" element={<Answered />} />
           <Route path="/create" element={<CreatePost/>} />
           <Route path="/showPost/:id" element={<ShowPost />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/about" element={<Hero />} />
         </Routes>
     </div>
     </AuthProvider>

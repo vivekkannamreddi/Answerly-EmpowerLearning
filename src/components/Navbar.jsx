@@ -8,7 +8,7 @@ const Navbar = () => {
   const navigate = useNavigate();
   const tokenAnswerly = localStorage.getItem('tokenAnswerly');
   const [isOpen, setIsOpen] = useState(false);
-  const { logout } = useAuth();
+  const { logout ,refreshUser } = useAuth();
   const [click , setClick] = useState(false)
 
   const profileClickHandler=()=>{
@@ -46,6 +46,9 @@ const Navbar = () => {
               {click && (
                 <div className="profileDropdown">
                   <ul>
+                    
+                    <li onClick={()=>{navigate('/profile');refreshUser();setClick(false)}}>Profile</li>
+                    <li onClick={()=>{navigate('/about');setClick(false)}}>About</li>
                     <li onClick={handleLogout}>Log Out</li>
                     
                   </ul>

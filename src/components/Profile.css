@@ -1,0 +1,38 @@
+.profileMain {
+    height: 60vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+}
+
+.innerContainer {
+  width: 100%;
+  max-width: 600px;
+  background: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.headerSection h1 {
+  text-align: start;
+  margin-bottom: 80px;
+}
+
+.bodySection .infoRow {
+  display: flex;
+  justify-content: space-between;
+  margin: 30px 0;
+  font-size: 18px;
+}
+
+.label {
+  font-weight: bold;
+}
+
+.buttonGroup {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+}

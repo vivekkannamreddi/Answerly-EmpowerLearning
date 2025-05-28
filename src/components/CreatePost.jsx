@@ -9,7 +9,8 @@ import { useAuth } from '../AuthContext.jsx';
 
 const CreatePost = () => {
     const navigate = useNavigate();
-    const { token } = useAuth();
+    const { token , refreshUser } = useAuth();
+    const [postCount,setPostCount] = useState(0);
   const [formData, setFormData] = useState({
     title: '',
     description: '',
@@ -24,7 +25,9 @@ const CreatePost = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
     setErrors({ ...errors, [e.target.name]: '' }); // clear error on change
   };
-
+  const increasePostCount = () =>{
+    setPostCount(1);
+  }
   const handleSubmit =async (e) => {
     e.preventDefault();
     let newErrors = {};
@@ -42,6 +45,7 @@ const CreatePost = () => {
       try {
             const res = await API.post('/auth/posts', formData, {headers: { Authorization: `Bearer ${token}` }})
             console.log('Post created:', res.data);
+            refreshUser();
             navigate('/posts'); 
         } catch (err) {
             console.error('Error creating post:', err.response?.data || err.message);
@@ -117,7 +121,7 @@ const CreatePost = () => {
               />
             </div>
             <div className='textfieldcreate'>
-              <Button type="submit" variant="contained" color="primary" style={{ marginTop: '1rem' }}>
+              <Button type="submit" variant="contained" color="primary" style={{ marginTop: '1rem' }} onClick={increasePostCount}>
                 Submit
               </Button>
             </div>

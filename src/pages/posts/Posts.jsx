@@ -11,7 +11,7 @@ import Skeleton from '@mui/material/Skeleton';
 const Posts = () => {
   const [posts, setPosts] = useState([]);
   const navigate = useNavigate();
-  const {user,token} = useAuth()
+  const {user,token,refreshUser} = useAuth()
   const currentUserId = user?.id
 
 
@@ -19,6 +19,7 @@ const Posts = () => {
     try {
       await API.delete(`/auth/posts/${postId}`,{ headers: {Authorization: `Bearer ${token}`}});
       setPosts(posts.filter(post => post._id !== postId));
+      refreshUser();
     } catch (err) {
       console.error('Failed to delete post', err);
     }
