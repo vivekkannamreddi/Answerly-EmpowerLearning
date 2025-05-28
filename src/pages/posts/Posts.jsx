@@ -5,6 +5,7 @@ import Fab from '@mui/material/Fab';
 import AddIcon from '@mui/icons-material/Add';
 import './Posts.css'; 
 import { useAuth } from '../../AuthContext.jsx';
+import Skeleton from '@mui/material/Skeleton';
 
 
 const Posts = () => {
@@ -53,7 +54,7 @@ const Posts = () => {
       </div>
 
       <div className="post-list">
-        {Array.isArray(posts) && posts.map(post => (
+        {Array.isArray(posts)? posts.map(post => (
           <div className="post-card" key={post._id}>
             <h2>{post.title}</h2>
             <p className="description">{post.description}</p>
@@ -78,7 +79,10 @@ const Posts = () => {
               </div>
             </div>
           </div>
-        ))}
+          
+        ))
+        :<Skeleton variant="rectangular" width={1200} height={60} />
+      }
       </div>
     </div>
   );

@@ -2,17 +2,23 @@ import React, { useState } from 'react';
 import './Navbar.css';
 import { useNavigate, Link } from 'react-router-dom';
 import { useAuth } from '../AuthContext';
+import { assets } from '../assets/assets.js';
 
 const Navbar = () => {
   const navigate = useNavigate();
   const tokenAnswerly = localStorage.getItem('tokenAnswerly');
   const [isOpen, setIsOpen] = useState(false);
   const { logout } = useAuth();
+  const [click , setClick] = useState(false)
 
+  const profileClickHandler=()=>{
+    setClick(!click)
+  }
   const handleLogout = () => {
     logout();
     navigate('/');
-    setIsOpen(false); // Close menu on logout
+    setIsOpen(false); 
+    setClick(false)// Close menu on logout
   };
 
   const handleNavigate = (path) => {
@@ -35,7 +41,18 @@ const Navbar = () => {
 
         <div className="nav-sections left-right right desktop-menu">
           {tokenAnswerly ? (
-            <a className='nav-elements' onClick={handleLogout}>Log Out</a>
+            <div className='profileButton'>
+              <img src={assets.profile_image} onClick={profileClickHandler} alt="Profile" className="profileImage" />
+              {click && (
+                <div className="profileDropdown">
+                  <ul>
+                    <li onClick={handleLogout}>Log Out</li>
+                    
+                  </ul>
+                </div>
+              )}
+            </div>
+
           ) : (
             <>
               <Link className='nav-elements' to="/signup">Sign Up</Link>
@@ -55,7 +72,10 @@ const Navbar = () => {
           <p className='nav-elements' onClick={() => handleNavigate('/mydoubts')}>My-doubts</p>
           <p className='nav-elements' onClick={() => handleNavigate('/answered')}>Answered</p>
           {tokenAnswerly ? (
-            <a className='nav-elements' onClick={handleLogout}>Log Out</a>
+            <div className='profileButton'>
+              
+              <a className='nav-elements' onClick={handleLogout}>Log Out</a>
+            </div>
           ) : (
             <>
               <Link className='nav-elements color' to="/signup" onClick={() => setIsOpen(false)}>Sign Up</Link>

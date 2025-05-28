@@ -51,8 +51,54 @@
     text-decoration: none;
 }
 
+/* .profileButton>img{
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  background-color: grey;
+  cursor: pointer;
 
+} */
 
+.profileButton {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.profileImage {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+}
+
+.profileDropdown {
+  position: absolute;
+  width: 100px;
+  top: 40px; /* slightly below the image */
+  right: 0;
+  background-color: white;
+  border: 1px solid #ccc;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  border-radius: 8px;
+  z-index: 1000;
+}
+
+.profileDropdown ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.profileDropdown li {
+  padding: 10px 15px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.profileDropdown li:hover {
+  background-color: #f0f0f0;
+}
 
 
 .hamburger {
