@@ -7,16 +7,16 @@ import './ShowPost.css';
 
 const ShowPost = () => {
   const { id } = useParams();
-  const { user } = useAuth(); 
+  const { userDetails } = useAuth(); 
   const [post, setPost] = useState(null);
   const [loading, setLoading] = useState(true);
   const [showAnswerBox, setShowAnswerBox] = useState(false);
   const [answerText, setAnswerText] = useState('');
   const [sending, setSending] = useState(false);
   const [answers, setAnswers] = useState([]);
-  const currentUserId = user?.id;
+  const currentUserId = userDetails?.id;
   const {token} = useAuth()
-  useEffect(() => {
+  useEffect(() => {   
     fetchPost();
   }, [id]);
 
@@ -49,13 +49,13 @@ const ShowPost = () => {
 
   const handleSubmitAnswer = async() => {
     if (!answerText.trim()) return;
-    if (!user) {
+    if (!userDetails) {
       alert('You need to be logged in to submit an answer.');
       return;
     }
 
     setSending(true);
-    await API.post(`/auth/posts/${id}/answer`, { content: answerText, userId: user.id })
+    await API.post(`/auth/posts/${id}/answer`, { content: answerText, userId: userDetails.id })
       .then(() => {
         setAnswerText('');
         setShowAnswerBox(false);

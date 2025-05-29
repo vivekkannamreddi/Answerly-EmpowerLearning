@@ -5,8 +5,8 @@ import { useNavigate } from 'react-router-dom';
 import './MyDoubts.css';
 
 const MyDoubts = () => {
-  const { user, token } = useAuth();
-  const currentUserId = user?.id;
+  const { userDetails, token } = useAuth();
+  const currentUserId = userDetails?.id;
   const [myPosts, setMyPosts] = useState([]);
   const navigate = useNavigate();
 

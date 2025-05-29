@@ -11,8 +11,8 @@ import Skeleton from '@mui/material/Skeleton';
 const Posts = () => {
   const [posts, setPosts] = useState([]);
   const navigate = useNavigate();
-  const {user,token,refreshUser} = useAuth()
-  const currentUserId = user?.id
+  const {userDetails,token,refreshUser} = useAuth()
+  const currentUserId = userDetails?.id
 
 
   const handleDelete = async (postId) => {
@@ -73,7 +73,7 @@ const Posts = () => {
               </div>
               <div className="column button-column">
                 <button onClick={() => navigate(`/showPost/${post._id}`)} className='viewpostbutton'>View Post</button>
-                {user && post.postedBy?._id === currentUserId && (
+                {userDetails && post.postedBy?._id === currentUserId && (
                   <button onClick={() => handleDelete(post._id)} className='deletepostbutton'>Delete Post</button>
                 )}
 

@@ -1,0 +1,12 @@
+.editMain{
+    height: 90vh;
+    border: 2px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.editInnerMain{
+    border: 2px solid black;
+    height: 400px;
+    width: 600px;
+}

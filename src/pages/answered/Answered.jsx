@@ -7,8 +7,8 @@ import './Answered.css'; // CSS file
 const Answered = () => {
   const [allAnswered, setAllAnswered] = useState([]);
   const [answeredPosts, setAnsweredPosts] = useState([]);
-  const { user } = useAuth();
-  const currentUserId = user?.id;
+  const { userDetails } = useAuth();
+  const currentUserId = userDetails?.id;
   const navigate = useNavigate();
 
   useEffect(() => {

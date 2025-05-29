@@ -2,17 +2,17 @@ import React from 'react';
 import './Profile.css';
 import Button from '@mui/material/Button';
 import { useAuth } from '../AuthContext';
+import API from '../api'
+import { Navigate, useNavigate } from 'react-router-dom';
 
 const Profile = () => {
+  const navigate = useNavigate();
   const { userDetails } = useAuth();
 
   if (!userDetails) {
     return <div className='profileMain'>Loading profile...</div>; // optional loading message
   }
 
-  const handleEdit = () => {
-    alert('Edit profile functionality');
-  };
 
   const handleDelete = () => {
     if (window.confirm('Are you sure you want to delete your account?')) {
@@ -54,10 +54,10 @@ const Profile = () => {
           </div>
 
           <div className="buttonGroup">
-            <Button variant="contained" color="primary" onClick={handleEdit}>
+            <Button variant="contained" color="primary" onClick={()=>navigate('/edit')}>
               Edit Account
             </Button>
-            <Button variant="outlined" color="error" onClick={handleDelete}>
+            <Button variant="outlined" color="error" onClick={()=>{}}>
               Delete Account
             </Button>
           </div>

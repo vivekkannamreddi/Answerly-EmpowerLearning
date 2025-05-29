@@ -10,7 +10,6 @@ import { useAuth } from '../AuthContext.jsx';
 const CreatePost = () => {
     const navigate = useNavigate();
     const { token , refreshUser } = useAuth();
-    const [postCount,setPostCount] = useState(0);
   const [formData, setFormData] = useState({
     title: '',
     description: '',
@@ -25,9 +24,6 @@ const CreatePost = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
     setErrors({ ...errors, [e.target.name]: '' }); // clear error on change
   };
-  const increasePostCount = () =>{
-    setPostCount(1);
-  }
   const handleSubmit =async (e) => {
     e.preventDefault();
     let newErrors = {};
@@ -121,7 +117,7 @@ const CreatePost = () => {
               />
             </div>
             <div className='textfieldcreate'>
-              <Button type="submit" variant="contained" color="primary" style={{ marginTop: '1rem' }} onClick={increasePostCount}>
+              <Button type="submit" variant="contained" color="primary" style={{ marginTop: '1rem' }} >
                 Submit
               </Button>
             </div>

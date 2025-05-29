@@ -12,6 +12,7 @@ import ShowPost from './components/ShowPost.jsx'
 import MyDoubts from './pages/my-doubts/MyDoubts.jsx'
 import Answered from './pages/answered/Answered.jsx'
 import Profile from './components/Profile.jsx'
+import Edit from './components/Edit.jsx'
 
 function App() {
 
@@ -30,6 +31,7 @@ function App() {
           <Route path="/showPost/:id" element={<ShowPost />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/about" element={<Hero />} />
+          <Route path="/edit" element={<Edit />} />
         </Routes>
     </div>
     </AuthProvider>
