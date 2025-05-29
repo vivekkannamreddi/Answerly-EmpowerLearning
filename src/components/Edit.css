@@ -1,12 +1,34 @@
 .editMain{
+    width: 100%;
     height: 90vh;
-    border: 2px solid black;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
 }
-.editInnerMain{
-    border: 2px solid black;
-    height: 400px;
-    width: 600px;
+.editInner{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    height: 70%;
+}
+.textfieldedit,.textfieldedit>Button{
+    margin-bottom: 30px;
+    width: 100%;
+}
+
+
+@media (max-width: 576px) {
+    .editMain {
+        width: 300px;
+        padding: 20px;
+        border-radius: 8px;
+        
+    }
+    .editInner{
+        width: 100%;
+    }
+    .textfieldedit Button {
+        width: 100% !important;
+    }
 }

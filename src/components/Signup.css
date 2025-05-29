@@ -13,7 +13,21 @@
     width: 45%;
     height: 70%;
 }
-.textfieldsignup{
+.textfieldsignup,.textfieldsignup>Button{
     margin-bottom: 30px;
     width: 100%;
+}
+@media (max-width: 576px) {
+    .signupMain {
+        width: 300px;
+        padding: 20px;
+        border-radius: 8px;
+        
+    }
+    .signupInner{
+        width: 100%;
+    }
+    .textfieldsignup Button {
+        width: 100% !important;
+    }
 }

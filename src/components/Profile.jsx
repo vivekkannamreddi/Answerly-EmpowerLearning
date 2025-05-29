@@ -7,18 +7,22 @@ import { Navigate, useNavigate } from 'react-router-dom';
 
 const Profile = () => {
   const navigate = useNavigate();
-  const { userDetails } = useAuth();
+  const { userDetails,logout } = useAuth();
 
   if (!userDetails) {
     return <div className='profileMain'>Loading profile...</div>; // optional loading message
   }
 
 
-  const handleDelete = () => {
+  const handleDelete = async(UserId) => {
     if (window.confirm('Are you sure you want to delete your account?')) {
       alert('Account deleted');
     }
+    const data = await API.delete(`/auth/user/${UserId}`);
+    logout();
+    console.log(data);
   };
+
 
   return (
     <div className='profileMain'>
@@ -57,7 +61,7 @@ const Profile = () => {
             <Button variant="contained" color="primary" onClick={()=>navigate('/edit')}>
               Edit Account
             </Button>
-            <Button variant="outlined" color="error" onClick={()=>{}}>
+            <Button variant="outlined" color="error" onClick={()=>{handleDelete(userDetails.id)}}>
               Delete Account
             </Button>
           </div>
