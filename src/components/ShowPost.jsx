@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams,useNavigate } from 'react-router-dom';
 import API from '../api.js';
 import { useAuth } from '../AuthContext.jsx'; 
 import '../pages/posts/Posts.css';
 import './ShowPost.css';
 
 const ShowPost = () => {
+  const navigate = useNavigate();
   const { id } = useParams();
   const { userDetails } = useAuth(); 
   const [post, setPost] = useState(null);
@@ -16,6 +17,9 @@ const ShowPost = () => {
   const [answers, setAnswers] = useState([]);
   const currentUserId = userDetails?.id;
   const {token} = useAuth()
+  const [editingAnswerId, setEditingAnswerId] = useState(null);
+  const [editingAnswerText, setEditingAnswerText] = useState('');
+
   useEffect(() => {   
     fetchPost();
   }, [id]);
@@ -44,6 +48,30 @@ const ShowPost = () => {
     console.error('Failed to delete answer', err);
   }
 };
+const handleEdit = (AnsId) => {
+  const answerToEdit = answers.find(ans => ans._id === AnsId);
+  setEditingAnswerId(AnsId);
+  setEditingAnswerText(answerToEdit?.content || '');
+};
+
+
+const handleUpdateAnswer = async () => {
+  if (!editingAnswerText.trim()) return;
+  try {
+    await API.put(`/auth/answers/${editingAnswerId}`, {
+      content: editingAnswerText,
+    }, {
+      headers: { Authorization: `Bearer ${token}` }
+    });
+
+    setEditingAnswerId(null);
+    setEditingAnswerText('');
+    fetchPost();
+  } catch (err) {
+    console.error('Failed to update answer', err);
+  }
+};
+
 
 
 
@@ -118,10 +146,25 @@ const ShowPost = () => {
         ) : (
           answers.map((ans, index) => (
             <div key={index} className="answer-box">
-              <p>{ans.content}</p>
+              {editingAnswerId === ans._id ? (
+                    <>
+                      <textarea
+                        value={editingAnswerText}
+                        style={{border:'none',width:'100%',marginBottom:'10px'}}
+                        onChange={(e) => setEditingAnswerText(e.target.value)}
+                      />
+                      <button onClick={handleUpdateAnswer}>Update</button>
+                      <button onClick={() => setEditingAnswerId(null)}>Cancel</button>
+                    </>
+                  ) : (
+                    <p>{ans.content}</p>
+                  )}
+
               <p className="answered-by">— {ans.answeredBy?.username || 'Anonymous'}</p>
               {ans.answeredBy?._id === currentUserId && (
+                <>
               <button onClick={() => handleDelete(ans._id)}className='deletepostbutton'>Delete</button>
+              <button onClick={() => handleEdit(ans._id)}className='viewpostbutton' style={{marginLeft:'10px'}}>Edit</button></>
               )}
             </div>
           ))

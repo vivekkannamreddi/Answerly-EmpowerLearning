@@ -1,6 +1,7 @@
 .FooterMain{
     height: 50vh;
     width: 100% !important;
+    margin-top: 50px;
     
 }
 
@@ -10,6 +11,7 @@
     
 }
 .FooterSecondContainer{
+    margin-top: 50px;
     height: auto;
     display: flex;
     justify-content: space-between;

@@ -80,6 +80,7 @@ h1 {
 .viewpostbutton:hover {
   background-color: #1976d2;
   color: white;
+  
 }
 .deletepostbutton {
   padding: 0.4rem 1rem;

@@ -51,8 +51,10 @@ const questions = [
 
 const CustomCollapse = () => {
   return (
-    <div >
-      <Divider orientation="left">Frequently Asked Questions</Divider>
+    <div className="collapseMain" style={{ height: '60vh', padding: '2rem' }}>
+      <h1 style={{ fontSize: '2rem', margin:'0',padding:'0' }}>Frequently Asked Questions</h1>
+      <Divider orientation="left" >
+      </Divider>
       <Collapse
         accordion
         size="large"
