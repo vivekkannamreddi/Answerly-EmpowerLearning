@@ -13,6 +13,7 @@ import MyDoubts from './pages/my-doubts/MyDoubts.jsx'
 import Answered from './pages/answered/Answered.jsx'
 import Profile from './components/Profile.jsx'
 import Edit from './components/Edit.jsx'
+import Landing from './components/Landing.jsx'
 
 function App() {
 
@@ -21,7 +22,7 @@ function App() {
     <div className='app'>
         <Navbar/>
         <Routes>  
-          <Route path="/" element={<Hero />} />
+          <Route path="/" element={<Landing />} />
           <Route path='/signup' element={<Signup/>}/>
           <Route path='/login' element={<Login/>}/>
           <Route path="/posts" element={<Posts />} />

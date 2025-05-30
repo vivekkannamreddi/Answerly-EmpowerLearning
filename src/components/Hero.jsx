@@ -2,6 +2,7 @@ import React from 'react'
 import './Hero.css'
 import { useNavigate } from 'react-router-dom'
 import { Link } from 'react-router-dom'
+import { assets } from '../assets/assets'
 
 const Hero = () => {
   const navigate = useNavigate();
@@ -9,17 +10,23 @@ const Hero = () => {
   return (
     <div className='hero-root'>
       <div className="hero-content">
-        <div className='heroH1'><h1>Empower Learning Through Questions and Answers</h1></div>
-        <p>
-          Answerly is a collaborative platform where students ask doubts,<br />
-          share knowledge, and earn points for helping each other. Whether it's a tricky<br />
-          math problem or a tough concept, get answers, build streaks, and grow together as a <br />
-          <b>learning community</b>.
-        </p>
-        <div className="button">
-            <button className='getstartedbtn' onClick={() => navigate('/signup')}>
-                <b>Get Started..</b>
-            </button>
+        <div className='heroH1'>
+          <h1>Empower Learning Through Questions and Answers</h1>
+          <p>
+            Answerly is a collaborative platform where students ask doubts,<br />
+            share knowledge, and earn points for helping each other. Whether it's a tricky<br />
+            math problem or a tough concept, get answers, build streaks, and grow together as a <br />
+            <b>learning community</b>.
+          </p>
+          <div className="button">
+              <button className='getstartedbtn' onClick={() => navigate('/signup')}>
+                  <b>Get Started..</b>
+              </button>
+          </div>
+
+        </div>
+        <div className="heroImage">
+          <img src={assets.main5} alt="" />
         </div>
       </div>
     </div>
