@@ -6,7 +6,6 @@ import { assets } from '../assets/assets'
 
 const Hero = () => {
   const navigate = useNavigate();
-
   return (
     <div className='hero-root'>
       <div className="hero-content">
