@@ -72,3 +72,4 @@ Edit your profile: username, bio, and avatar.
 ```bash
 git clone https://github.com/your-username/answerly.git
 cd answerly
+code .
