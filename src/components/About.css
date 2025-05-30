@@ -1,0 +1,23 @@
+.aboutMain{
+    height: 220vh;
+    margin-top: 100px;
+}
+.image>img{
+    height: 500px;
+    width: 1450px; 
+}
+.content>p{
+    font-size: 20px;
+    line-height: 30px;
+    word-spacing: 5px;
+    padding-top: 40px;
+    padding-left: 20px;
+}
+
+.image2>img{
+    height: 800px;
+    width: 1450px; 
+}
+.belowImage{
+    padding-top: 100px;
+}
