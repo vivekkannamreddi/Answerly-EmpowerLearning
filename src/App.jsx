@@ -14,6 +14,8 @@ import Answered from './pages/answered/Answered.jsx'
 import Profile from './components/Profile.jsx'
 import Edit from './components/Edit.jsx'
 import Landing from './components/Landing.jsx'
+import 'antd/dist/reset.css'; 
+
 
 function App() {
 
