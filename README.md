@@ -17,6 +17,21 @@ Answerly is a collaborative MERN Stack platform that allows students and learner
 
 ---
 
+##📦 Folder Structure
+answerly/
+├── backend/
+│   ├── models/
+│   ├── routes/
+│   ├── controllers/
+│   ├── middleware/
+│   └── server.js
+├── frontend/
+│   ├── src/
+│   │   ├── components/
+│   │   ├── pages/
+│   │   └── App.js
+└── README.md
+
 ## 🧠 How It Works
 
 ### 1. **Authentication**
@@ -72,4 +87,3 @@ Edit your profile: username, bio, and avatar.
 ```bash
 git clone https://github.com/your-username/answerly.git
 cd answerly
-code .
