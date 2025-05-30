@@ -1,0 +1,34 @@
+.FooterMain{
+    height: 50vh;
+    width: 100% !important;
+    
+}
+
+.FFCLeft>h1{
+    color: #6d28d2;
+    font-size:50px;
+    
+}
+.FooterSecondContainer{
+    height: auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.FSCLeft>ul>li{
+    padding-bottom:15px ;
+    list-style: none;
+}
+.FSCMiddle>ul>li{
+    padding-bottom: 15px;
+    list-style: none;
+}
+.FSCRight>ul>li{
+    padding-bottom: 15px;
+    list-style: none;
+}
+.FooterThirdContainer{
+    height: 20%;
+    display: flex;align-items: center;
+    justify-content: center;
+}
