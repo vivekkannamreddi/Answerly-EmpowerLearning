@@ -9,7 +9,7 @@ const Hero = () => {
   return (
     <div className='hero-root'>
       <div className="hero-content">
-        <h1>Empower Learning Through Questions and Answers</h1>
+        <div className='heroH1'><h1>Empower Learning Through Questions and Answers</h1></div>
         <p>
           Answerly is a collaborative platform where students ask doubts,<br />
           share knowledge, and earn points for helping each other. Whether it's a tricky<br />

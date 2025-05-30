@@ -1,50 +1,17 @@
-/* .hero-root{
-    height: 60vh;       
-    border-radius: 2rem;
-    background-color: #6d28d2;
-    margin: 60px 0;
-    padding: 3rem;
-}
-.hero-content>h1{
-    animation: fadein 3s;
-}
-.hero-content>p{
-    animation: fadein 3s;
-}
-.hero-content h1{
-    color: white;
-    font-size:5.3rem;
-    
-}
-.hero-content p{
-    color: white;
-    font-size: 20px;
-}
-.btn{
-    height: 60px;
-    width: 200px;
-    font-size: 1.3rem;
-    border-radius: 1.8rem;
-    color:  #6d28d2;
-    border: none;
-    outline: none;
-    cursor: pointer;
-}
-
-@keyframes fadein {
-  from { opacity: 0; }
-  to { opacity: 1; }
-} */
-
-
-
-
 .hero-root {
     border-radius: 2rem;
     background-color: #6d28d2;
     margin: 60px 0;
     padding: 3rem;
     text-align: center;
+}
+.hero-content{
+    height: 100%;
+    
+}
+.heroH1{
+    width: 60%;
+    text-align: left;
 }
 
 .hero-content > h1,
@@ -88,6 +55,14 @@
     
     .hero-content h1 {
         font-size: 2.5rem;
+    }
+    .hero-content{
+    height: 100%;
+    
+    }
+    .heroH1{
+        width: 100%;
+        text-align: left;
     }
 
     .hero-content p {
