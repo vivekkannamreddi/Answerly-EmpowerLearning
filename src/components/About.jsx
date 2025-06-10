@@ -8,7 +8,7 @@ const About = () => {
         <div className="upperImage">
             <div className="image">
                 <h1>📚 Explore All Posts – Learn, Share, and Grow</h1>
-                <img src={assets.posts} alt="" />
+                {/* <img src={assets.posts} alt="" /> */}
             </div>
             <div className="content">
                 
@@ -18,7 +18,7 @@ const About = () => {
         <div className="belowImage">
             <div className="image2">
                 <h1>📝 Post Details & Community Answers</h1>
-                <img src={assets.showpost} alt="" />
+                {/* <img src={assets.showpost} alt="" /> */}
             </div>
             <div className="content">
                 <p>This section displays the full details of the selected question along with all the answers shared by the community. You can read through different perspectives, vote for helpful responses, and contribute your own insights. If you're the author of an answer, you can edit or delete it anytime to keep your contribution up-to-date and accurate. Learning is collaborative—feel free to engage, refine, and share knowledge!</p>
